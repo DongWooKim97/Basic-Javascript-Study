@@ -42,3 +42,29 @@ console.assert(ClassWithPrivateStaticField.publicStaticMethod() === 42);
 - Private static 필드는 해당 필드를 선언한 class 에서만 접근할 수 있다.
 
 - 이는 this 를 사용함에 있어 예상치 못한 동작을 야기할 수 있다.
+
+```javascript
+class BaseClassWithPrivateStaticField {
+	static #PRIVATE_STATIC_FIELD;
+
+	static basePublicStaticMethod() {
+		this.#PRIVATE_STATIC_FIELD = 42;
+		return this.#PRIVATE_STATIC_FIELD;
+	}
+}
+
+class SubClass extends BaseClassWithPrivateStaticField {}
+
+let error = null;
+
+try {
+	SubClass.basePublicStaticMethod();
+} catch (e) {
+	error = e;
+}
+
+console.assert(error instanceof TypeError)``;
+```
+
+- 여기서 `console.assert()`는 ()안의 값이 false일때만 에러룰 출력하는 출력문이다
+  - 반대로 `true`일떄는 출력 및 반응 ❌
