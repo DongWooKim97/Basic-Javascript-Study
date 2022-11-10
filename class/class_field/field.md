@@ -68,3 +68,31 @@ console.assert(error instanceof TypeError)``;
 
 - 여기서 `console.assert()`는 ()안의 값이 false일때만 에러룰 출력하는 출력문이다
   - 반대로 `true`일떄는 출력 및 반응 ❌
+
+<br>
+
+## 📚 2. 프라이빗 클래스 메소드 (Private static methods)
+
+- private static 메소드는 public static 메소드처럼 인스턴스가 아닌 class 로부터 호출된다.
+- 그리고 private static 필드처럼 class 선언문 내부에서만 접근 가능하다.
+
+```javascript
+//private static 메소드는 generator, async 그리고 async generator 함수가 될 수 있다.
+
+class ClassWithPrivateStaticMethod {
+	static #privateStaticMethod() {
+		return 42;
+	}
+
+	static publicStaticMethod1() {
+		return ClassWithPrivateStaticMethod.#privateStaticMethod();
+	}
+
+	static publicStaticMethod2() {
+		return this.#privateStaticMethod();
+	}
+}
+
+console.assert(ClassWithPrivateStaticMethod.publicStaticMethod1() === 42);
+console.assert(ClassWithPrivateStaticMethod.publicStaticMethod2() === 42);
+```
