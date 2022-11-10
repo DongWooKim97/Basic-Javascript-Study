@@ -16,3 +16,41 @@ class ClassWithPrivateStaticField {
 
 console.assert(ClassWithPrivateStaticField.publicStaticMethod() !== 42);
 console.log(ClassWithPrivateStaticField.a());
+
+class BaseClassWithPrivateStaticField {
+	static #PRIVATE_STATIC_FIELD;
+
+	static basePublicStaticMethod() {
+		this.#PRIVATE_STATIC_FIELD = 42;
+		return this.#PRIVATE_STATIC_FIELD;
+	}
+}
+
+class SubClass extends BaseClassWithPrivateStaticField {}
+
+let error = null;
+
+try {
+	SubClass.basePublicStaticMethod();
+} catch (e) {
+	error = e;
+}
+
+console.assert(error instanceof TypeError);
+
+class ClassWithPrivateStaticMethod {
+	static #privateStaticMethod() {
+		return 42;
+	}
+
+	static publicStaticMethod1() {
+		return ClassWithPrivateStaticMethod.#privateStaticMethod();
+	}
+
+	static publicStaticMethod2() {
+		return this.#privateStaticMethod();
+	}
+}
+
+console.assert(ClassWithPrivateStaticMethod.publicStaticMethod1() === 42);
+console.assert(ClassWithPrivateStaticMethod.publicStaticMethod2() === 42);
