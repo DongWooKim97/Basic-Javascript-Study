@@ -96,3 +96,44 @@ class ClassWithPrivateStaticMethod {
 console.assert(ClassWithPrivateStaticMethod.publicStaticMethod1() === 42);
 console.assert(ClassWithPrivateStaticMethod.publicStaticMethod2() === 42);
 ```
+
+- 또한 `모든 Private 필드는 소속된 클래스에 고유한 스코프를 갖는다.`라는 성질을 갖는다.
+
+```javascript
+class Human {
+	#age = 10;
+
+	getAge() {
+		return this.#age;
+	}
+}
+
+class Person extends Human {
+	#age = 20;
+
+	getFakeAge() {
+		return this.#age;
+	}
+}
+
+const p = new Person();
+console.log(p.getAge()); // 10
+console.log(p.getFakeAge()); // 20
+```
+
+<br>
+
+- 동일하게 this.#age에 접근하는 getAge()와 getFakeAge()의 결과가 다르다.
+
+- #age 즉 private 속성은 그동안 우리가 알고 있던 this 의 그 컨텍스트와는 다른 방식으로 저장된다. 기존처럼 인스턴스별로 독립적인 공간을 갖지만, 추가로 클래스 별로 독립적인 공간을 갖는 것이다.
+
+<br>
+
+- 쉽게 말하면 Human 클래스 스코프의 #age와 Person 클래스 스코프의 #age는 다르다는 것이다. 그러므로 Human 클래스에 속한 getAge()가 실행될때는 Human의 #age에 접근하고 Person의 getFakeAge()가 실행될 때는 Person의 #age에 접근하는 것이다.
+  - 두 개 이상의 클래스가 같은 private fields를 가지고 있고 같은 이름을 참조하고 있다면, 실행되는 함수나 클래스의 스코프에 맞춰 실행 !
+
+<br>
+
+[출처] : <https://ui.toast.com/weekly-pick/ko_20200312>
+
+[출처] : <https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Classes/Private_class_fields>
