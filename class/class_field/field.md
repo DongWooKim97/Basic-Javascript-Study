@@ -71,7 +71,7 @@ console.assert(error instanceof TypeError)``;
 
 <br>
 
-## 📚 2. 프라이빗 클래스 메소드 (Private static methods)
+## 📚 3. 프라이빗 클래스 메소드 (Private static methods)
 
 - private static 메소드는 public static 메소드처럼 인스턴스가 아닌 class 로부터 호출된다.
 - 그리고 private static 필드처럼 class 선언문 내부에서만 접근 가능하다.
