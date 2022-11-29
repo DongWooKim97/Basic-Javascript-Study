@@ -4,7 +4,7 @@
 
 ## 📚 chrounous/asynchronous Study List
 
-| [1](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/class/class_field) | [Class Field](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/class/class_field) |
-| :---------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------: |
+| [1](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/class/class_field) | [sync vs async](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/asynchronous/synchronous) |
+| :---------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: |
 
 <br>
