@@ -2,12 +2,15 @@
 
 <br>
 
-# 1. 클래스 필드
 
-1. private class field
+## 📚 Class Study Order List
+
+
+  | 1 | Class Field |
+  | :-------------------------------------: | :-------------------------------------: |
+  | 2 | Static Method |
+  | 3 | Private Method |
+
+  </div>
 
 <br>
-
-# 2. 정적 메소드
-
-1. static method
