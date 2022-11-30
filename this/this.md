@@ -52,3 +52,69 @@ console.log(circle.getDiameter());
 - 이처럼 this는 상황에 따라 가리키는 대상이 다름.
 
 <br>
+
+## 2. 함수 호출 방식과 this바인딩
+
+<br>
+
+> - this 바인딩(this에 바인딩될 값)은 함수 호출 방식, 즉 함수가 어떻게 호출되었는지에 따라 동적으로 결정된다.
+> - 함수의 상위 스코프를 결정하는 방식인 렉시컬 스코프는this바인딩은 함수 호출 시점에 결정!
+
+### 함수 호출 방식
+
+<br>
+
+|  1  |                         일반 함수 호출                         |
+| :-: | :------------------------------------------------------------: |
+|  2  |                          메서드 호출                           |
+|  3  |                        생성자 함수 호출                        |
+|  4  | Function.prototype.apply / call / bind 메서드에 의한 간접 호출 |
+
+<br>
+
+### 2.1 함수 호출 - 일반 함수 호출
+
+<br>
+
+- 기본적으로 `this`에는 전역 객체가 바인딩 된다.
+
+```javascript
+function foo() {
+	console.log('hello', this); // if strict mode - window / not - undefined
+	function bar() {
+		console.log('fellow', this); // if strict mode - window / not - undefined
+	}
+	bar();
+}
+foo();
+```
+
+- 위 예저처럼 전역 함수는 물론이고 중첩 함수를 일반 함수로 호출하면 함수 내부의 this에는 전역 객체가 바인딩.
+- **다만 this는 객체의 프로퍼티나 메서드를 참조하기 위한 자기 참조 변수이므로 객체를 생성하지 않는 일반함수에서 this는 의미가 없다!**
+
+```javascript
+var value = 1;
+
+const obj = {
+	value: 100,
+	foo() {
+		console.log("foo's this:", this); // {value : 100, foo : function}
+		console.log("foo'sthis.value", this.value); // 100
+
+		// 메서드 내에서 정의한 중첩함수
+		function bar() {
+			console.log("bar's this : ", this); // window
+			console.log("bar's this.valie : ", this.value); // 1
+		}
+
+		bar();
+	},
+};
+
+obj.foo();
+```
+
+> 메서드 내에서 정의한 중첩 함수도 일반 함수로 호출되면 중첩 함수 내부의 this에는 전역 객체가 바인딩 된다.
+
+- 그렇기에 `fucntion bar()`에서의 `this`는 일반함수로 호출되었기 때문에 window가 출력된다.
+- 즉, **어떠한 함수라도 일반 함수로 호출되면 this에 전역 객체가 바인딩 된다.**
