@@ -2,6 +2,20 @@
 
 <br>
 
+## 📚 this Keyword Study List
+
+| [1](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/this) | [this](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/this) |
+| :--------------------------------------------------------------------------: | :-----------------------------------------------------------------------------: |
+
+<br>
+
+## 📚 Synchronous Study List
+
+| [1](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/class/class_field) | [sync vs async](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/asynchronous/basic_difference) |
+| :---------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
+
+<br>
+
 ## 📚 Class Study List
 
 |  [1](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/class/class_field)   |    [Class Field](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/class/class_field)    |
@@ -10,8 +24,3 @@
 | [3](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/class/private_method) | [Private Method](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/class/private_method) |
 
 <br>
-
-## 📚 Synchronous Study List
-
-| [1](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/class/class_field) | [sync vs async](https://github.com/DongWooKim97/Basic-Javascript-Study/tree/master/asynchronous/basic_difference) |
-| :---------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------: |
